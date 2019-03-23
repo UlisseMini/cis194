@@ -3,11 +3,9 @@
 
 file="Test.hs"
 cmd=$(cat <<-EOF
-    echo ":set -package hspec
-          :set -package QuickCheck
-          :!clear
-          :l $file
-          main" | ghci
+    echo ":!clear
+          main
+         " | ghci $file -package QuickCheck -package hspec
 EOF)
 
 echo "./LogAnalysis.hs" | entr -c bash -c "$cmd"
