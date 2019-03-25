@@ -1,8 +1,11 @@
 {-# OPTIONS_GHC -Wall #-}
 module LogAnalysis where
 
+-- Hide some partial functions from the prelude
+import Prelude hiding (read, head, tail, init, (!!), last)
+
 import Log
-import Text.Read (readMaybe)
+import Text.Read  (readMaybe)
 import Data.Maybe (fromMaybe)
 
 parseType :: String -> Maybe (MessageType, [String])
